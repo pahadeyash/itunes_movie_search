@@ -6,25 +6,32 @@ const ResultItem = (props) => {
   return(
     <div>
       <p> {result.trackName} </p>
-      
     </div>
   )
 }
 
 const MovieResults = (props) => {
-  const results = () => props.state.results.map(result => <ResultItem result={result}/>)
-  if (props.state.results !== null) {
-    return(
-      <div>
-        <p> Searching for movies under {props.state.movie} ... </p>
-        {results()}
-      </div>
-    )
+  const results = props.state.results
+  const resultsItemGenerator = () => results.map(result => <ResultItem result={result}/>)
+  
+  if (results !== null){
+    if (Object.keys(results).length === 0) {
+      return(
+        <div>
+          <p>No Results Found</p>
+        </div>
+      )
+    } else{
+      return(
+        <div>
+          {resultsItemGenerator()}
+        </div>
+      )
+    }
   }
-  return(
-    <div>
-      <p> Enter Search</p>
-    </div>
+  
+  return (
+    <div> </div>
   )
 }
 
@@ -62,9 +69,10 @@ const App = () => {
     <div>
       <form onSubmit={useRequestCallback}>
         <input
+          placeholder="enter something"
           onChange = {handleMovieInput}
         />
-        <button type="submit">save</button>
+        <button type="submit">Search</button>
       </form>
       <MovieResults state={state} />
     </div>
