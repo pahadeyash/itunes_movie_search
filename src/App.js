@@ -5,7 +5,7 @@ import Header from './components/Header'
 const App = () => {
 
   return(
-    <div class="container">
+    <div className="container">
       <Header />
       <br></br>
       <SearchBody />

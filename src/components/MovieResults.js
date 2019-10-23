@@ -3,7 +3,7 @@ import ResultItem from './ResultItem'
 
 const MovieResults = (props) => {
     const results = props.state.results
-    const resultsItemGenerator = () => results.map(result => <ResultItem result={result}/>)
+    const resultsItemGenerator = () => results.map( (result, i) => <ResultItem result={result} key={i}/>)
 
     if (results !== null){
         if (Object.keys(results).length === 0) {
@@ -14,7 +14,7 @@ const MovieResults = (props) => {
             )
         } else{
             return(
-                <div class="container">
+                <div className="container">
                     <br></br>
                     {resultsItemGenerator()}
                 </div>

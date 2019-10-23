@@ -35,7 +35,7 @@ const SearchBody = () => {
   }
 
   return(
-      <div class="container">
+      <div className="container">
           <form onSubmit={useRequestCallback}>
             <MDBInput
               hint="Search movie title"
@@ -43,7 +43,7 @@ const SearchBody = () => {
               containerClass="active-pink active-pink-2 mt-0 mb-3"
               onChange = {handleMovieInput}
             />
-            <button class="btn btn-primary" type="submit"> Search</button>
+            <button className="btn btn-primary" type="submit"> Search</button>
           </form>
           <MovieResults state={state} />
       </div>

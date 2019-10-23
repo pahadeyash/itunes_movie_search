@@ -1,9 +1,9 @@
 import React from 'react'
-
+import Image from './omniscience.jpg'
 const Header = () => {
     return(
-        <div class="header">
-            <img src={require('../download.jpg')} />            
+        <div className="header">
+            <img src={Image} alt=""/>            
         </div>
     )
 }
